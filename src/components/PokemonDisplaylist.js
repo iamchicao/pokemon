@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import PokemonCard from "./PokemonCard";
+import PokemonCard from "./PokemonCard/PokemonCard";
 
-class PokemonList extends Component {
+class PokemonDisplaylist extends Component {
   constructor() {
     super();
     this.state = {
@@ -12,20 +12,12 @@ class PokemonList extends Component {
   }
 
   async componentDidMount() {
-    //Múltiplas chamadas via API, Use Promise.all([promisse, promisse2, promisse 3])
+    const url = "https://pokeapi.co/api/v2/pokemon/?limit=151";
 
-    const urls = [
-      "https://pokeapi.co/api/v2/pokemon/?limit=28",
-      "https://pokeapi.co/api/v2/pokemon-species/",
-    ];
-    const pokemonData = await axios.get(urls[0]);
-    const pokemonSpecies = await axios.get(urls[1]);
+    const pokemonData = await axios.get(url);
 
     this.setState({
-      pokemon: pokemonData.data["results"],
-      description: pokemonSpecies.data["results"],
-      // Como posso obter um mapa sobre o valor
-      // para descrição e alimentar os dados com propriedade para meu componente Pokemon?
+      pokemon: pokemonData.data["results"]
     });
   }
   onSearchChange = (event) => {
@@ -49,7 +41,7 @@ class PokemonList extends Component {
           {/*Feature: searchbox */}
           {/* <SearchBox searchChange={this.onSearchChange} /> */}
           {/*Add pokemon={pokemonFiltered back into PokemonList}*/}
-          {this.state.pokemon.map((pokemon) => (
+          {this.state.pokemon.map(pokemon => (
             <PokemonCard
               key={pokemon.name}
               name={pokemon.name}
@@ -61,4 +53,4 @@ class PokemonList extends Component {
     );
   }
 }
-export default PokemonList;
+export default PokemonDisplaylist;
