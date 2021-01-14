@@ -73,13 +73,50 @@ class PokemonCard extends Component {
       return description;
     });
 
+    //Busca por HP(Vida), Ataque, Defesa, Ataque Especial, Defesa Especial e a Velocidade
+    let hp = "";
+    let attack = "";
+    let deffense = "";
+    let specialAttack = "";
+    let specialDeffense = "";
+    let speed = "";
+
+    pokemonDataResponse.data.stats.reverse().map(stat => {
+      //Switch Case
+      if (stat.stat.name === "hp") {
+        hp = stat.base_stat;
+      }
+      if (stat.stat.name === "attack") {
+        attack = stat.base_stat;
+      }
+      if (stat.stat.name === "deffense") {
+        deffense = stat.base_stat;
+      }
+      if (stat.stat.name === "specialAttack") {
+        specialAttack = stat.base_stat;
+      }
+      if (stat.stat.name === "specialDeffense") {
+        specialDeffense = stat.base_stat;
+      }
+      if (stat.stat.name === "speed") {
+        speed = stat.base_stat;
+      }
+      return "";
+    });
+
     this.setState({
       name: name,
       pokemonNumber: pokemonNumber,
       image: image,
       description: description,
       type: type,
-      ability: ability
+      ability: ability,
+      ho: hp,
+      attack: attack,
+      deffense: deffense,
+      specialAttack: specialAttack,
+      specialDeffense: specialDeffense,
+      speed: speed
     });
   }
   render() {
@@ -89,7 +126,13 @@ class PokemonCard extends Component {
       pokemonNumber,
       description,
       type,
-      ability
+      ability,
+      hp,
+      attack,
+      deffense,
+      specialAttack,
+      specialDeffense,
+      speed
     } = this.state;
     const upperCaseFirstChar = string =>
       string.charAt(0).toUpperCase() + string.substring(1);
@@ -116,17 +159,29 @@ class PokemonCard extends Component {
           <div className="card-body">
             <img src={image} alt={`pokemon: ${name}`} />
             <div className="card-title text-left">
-              <h5>Stats</h5>
-              <h6 className="pokemon-stat-title">Ability:</h6>
-              <span>{ability}</span>
-              <p className="pokemon-stat-title">HP</p>
-              <p className="pokemon-stat-title">Attack</p>
-              <p className="pokemon-stat-title">Defence</p>
-              <p className="pokemon-stat-title">Special Attack</p>
-              <p className="pokemon-stat-title">Special Defence</p>
-              <p className="pokemon-stat-title">Speed</p>
-              <p className="pokemon-state-title">Description:</p>
-              <span className="description">{description}</span>
+            <h5 className="pokemon-stats">Stats</h5>
+              <h6 className="pokemon-stat-title">
+                Ability: <span>{ability}</span>
+              </h6>
+              <p className="pokemon-stat-title">
+                HP: <span>{hp}</span>
+              </p>
+              <p className="pokemon-stat-title">
+                Attack: <span>{attack}</span>
+              </p>{" "}
+              <p className="pokemon-stat-title">
+                Defense: <span>{deffense}</span>
+              </p>
+              <p className="pokemon-stat-title">
+                Special Attack: <span>{specialAttack}</span>
+              </p>{" "}
+              <p className="pokemon-stat-title">
+                Special Defense: <span>{specialDeffense}</span>
+              </p>{" "}
+              <p className="pokemon-stat-title">
+                Speed: <span>{speed}</span>
+              </p>
+              <p className="pokemon-stat-title">Description:</p>
             </div>
           </div>
         </div>
