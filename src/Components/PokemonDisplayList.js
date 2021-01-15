@@ -1,64 +1,66 @@
 import React, { Component } from "react";
-import axios from 'axios';
+import { connect } from "react-redux";
 import PokemonCard from "./PokemonCard/PokemonCard";
-import SearchBox from './SearchBox'
-import Pokedex from "./Pokedex";
-import Description from "./Description";
-import Abilities from './Abilities';
+import pokedex from "./Pokedex";
+import description from "./Description";
+import abilities from "./Abilities";
+import { setSearchField } from "./Actions/actions";
+import Navbar from "./Navbar";
 
+const mapStateToProps = (state) => {
+  return {
+    searchField: state.searchField,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
+  };
+};
 class PokemonDisplaylist extends Component {
   constructor() {
     super();
     this.state = {
       pokemon: [],
       description: [],
-      searchbardata: ""
+      ability: [],
     };
   }
 
   async componentDidMount() {
-    const pokemonData = Pokedex;
-    const pokemonDescription = Description;
-    const pokemonAbilities = Abilities;
-    console.log(pokemonAbilities.map(ability => ability));
-    //  abilities.map(ability => ability.ability.name)
-    // .join(" / ");
-
-    console.log(Pokedex[0].name.english);
-    console.log(Pokedex[0].type);
-
-    this.setState({ pokemon: pokemonData, description: pokemonDescription });
+    const pokemonData = pokedex;
+    const pokemonDescription = description;
+    const pokemonAbilities = abilities.map((ability) => {
+      return ability.map((ability) => ability.ability.name).join(" / ");
+    });
+    this.setState({
+      pokemon: pokemonData,
+      description: pokemonDescription,
+      ability: pokemonAbilities,
+    });
   }
 
-    // onSearchChange = event => {
-  //   //update state of searchbardata so we can see our pokemon
-  //   //Arrow functions make sure that the this value is bound to where it was created
-  //   console.log("data: " + this.state.searchbardata);
-  //   this.setState({ searchbardata: event.target.value });
-  // };
   render() {
-    const { pokemon, description } = this.state;
-    // const pokemonFiltered = this.state.pokemon.filter(pokemon => {
-    //   return pokemon.name
-    //     .toLowerCase()
-    //     .includes(this.state.searchbardata.toLowerCase());
-    // });
-    if (this.state.pokemon.length === 0) {
-      return <h1>Loading...</h1>;
-    }
-    console.log("We have", this.state.pokemon);
+    const { description, ability } = this.state;
+    const { searchField, onSearchChange } = this.props;
+
+    const pokemonFiltered = this.state.pokemon.filter((pokemon) => {
+      return pokemon.name.english
+        .toLowerCase()
+        .includes(searchField.toLowerCase());
+    });
+
     return (
       <div>
-        <h1>Pokedex</h1>
         <div className="row">
-          {pokemon.map(pokemon => (
+          <Navbar searchChange={onSearchChange} />
+          {pokemonFiltered.map((pokemon) => (
             <PokemonCard
               key={pokemon.id}
               id={pokemon.id}
               name={pokemon.name.english}
-              image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-                pokemon.id
-              }.png?raw=true`}
+              image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png?raw=true`}
               hp={pokemon.base["HP"]}
               attack={pokemon.base["Attack"]}
               defense={pokemon.base["Defense"]}
@@ -67,6 +69,7 @@ class PokemonDisplaylist extends Component {
               speed={pokemon.base["Speed"]}
               type={pokemon.type}
               description={description[pokemon.id - 1]}
+              ability={ability[pokemon.id - 1]}
             />
           ))}
         </div>
@@ -74,4 +77,4 @@ class PokemonDisplaylist extends Component {
     );
   }
 }
-export default PokemonDisplaylist;
+export default connect(mapStateToProps, mapDispatchToProps)(PokemonDisplaylist);
