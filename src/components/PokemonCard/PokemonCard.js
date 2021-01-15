@@ -122,6 +122,7 @@ class PokemonCard extends Component {
       name,
       image,
       pokemonNumber,
+      // eslint-disable-next-line
       description,
       type,
       ability,
@@ -135,7 +136,7 @@ class PokemonCard extends Component {
     const upperCaseFirstChar = string =>
       string.charAt(0).toUpperCase() + string.substring(1);
     return (
-      <div className="card-container col-md-3 col-sm-6 mb-3">
+      <div className="card-container col-lg-3 col-md-4 col-sm-6 mb-3">
         <div className="card bg-dark text-white">
           <div className="text-nowrap p-1">
             <h4 className="pokemon-name">{upperCaseFirstChar(name)}</h4>
