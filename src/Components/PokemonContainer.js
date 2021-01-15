@@ -4,9 +4,11 @@ import PokemonDisplayList from "./PokemonDisplayList";
 class PokemonContainer extends Component {
   render() {
     return (
-      <div className="row">
-        <div className="col">
-          <PokemonDisplayList />
+      <div>
+        <div className="row">
+          <div className="col">
+            <PokemonDisplayList />
+          </div>
         </div>
       </div>
     );
