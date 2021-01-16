@@ -4,7 +4,7 @@ import pokedex from '../data/pokedex';
 describe("Filtering of pokemon", () => {
     const pokemon = pokedex;
     it("Should return an array of 3 Pokemon - Staryu, Starmine and Omastar", () => {
-        const pokemon = "star";
+        const term = "star";
         const filteredPokemon = filterOutPokemon(pokemon, term);
 
         expect(filteredPokemon.length).toBe(3);
