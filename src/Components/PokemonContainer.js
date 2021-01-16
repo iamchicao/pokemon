@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PokemonDisplayList from "./PokemonDisplayList";
+import PokemonList from "./PokemonList";
 
 class PokemonContainer extends Component {
   render() {
@@ -7,7 +7,7 @@ class PokemonContainer extends Component {
       <div>
         <div className="row">
           <div className="col">
-            <PokemonDisplayList />
+            <PokemonList />
           </div>
         </div>
       </div>
