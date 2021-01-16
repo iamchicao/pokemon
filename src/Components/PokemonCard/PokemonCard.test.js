@@ -1,7 +1,6 @@
-import React from 'react';
-import { render }  from "@testing-library/react";
-import PokemonCard from  './PokemonCard';
-import { iteratee } from 'lodash';
+import React from "react";
+import { render, cleanup } from "@testing-library/react";
+import PokemonCard from "./PokemonCard";
 
 const props = {
     name: "Mew",
@@ -14,14 +13,15 @@ const props = {
     specialDefense: 100,
     type: ["Physic"],
     description:
-        "Mew is said to prossess the genetic composition of all Pokémon. It is capable of making itself invisible at will, so it entirely avoids notice even if it approaches people.",
-    ability: "Synchronize",    
+        "Mew is said to prossess the genetic composition of all Pokémon.",
+    ability: "Synchronize",
 };
 
 describe("<PokemonCard/>", () => {
-    it("Should a render a PokemonCard", () => {
+    afterEach(cleanup);
+    it("Should render a PokemonCard with given props", () => {
         const { getByTestId } = render(<PokemonCard {...props} />);
-        const = getByTestId("pokemon-card");
+        const card = getByTestId("pokemon-card");
         expect(card).toBeTruthy();
     });
 });
