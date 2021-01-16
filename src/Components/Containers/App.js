@@ -1,11 +1,10 @@
 import React from "react";
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.css";
 import PokemonList from "../PokemonList";
-
+import { GlobalStyle } from "../../styles/styles";
 const App = () => {
   return (
     <div className="App">
+      <GlobalStyle />
       <div className="container">
         <PokemonList />
       </div>
