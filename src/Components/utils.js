@@ -2,6 +2,12 @@ const handleSubmit = (event) => {
     event.preventDefault();
 };
 
+const filterOutPokemon = (pokemon, term) => {
+    return pokemon.filter((monster) => {
+        return monster.name.english.toLowerCase().includes(term.toLowerCase());
+    });
+};
+
 //https://bulbapedia.bulbagarden.net/wiki/Type
 const colors = {
     Normal: "#A8A878",
@@ -24,4 +30,4 @@ const colors = {
     Fairy: "#EE99AC",
 };
 
-export { handleSubmit, colors };
+export { filterOutPokemon, handleSubmit, colors };
