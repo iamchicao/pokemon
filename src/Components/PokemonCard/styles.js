@@ -1,6 +1,7 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
+import { colors } from "../utils";
 
-const PokemonCardStyle = createGlobalStyle`
+export const PokemonCardStyle = createGlobalStyle`
   .img {
     padding: 30px;
     margin: 10px;
@@ -31,4 +32,6 @@ const PokemonCardStyle = createGlobalStyle`
   }
 `;
 
-export { PokemonCardStyle };
+export const PokemonTypeBadge = styled.span`
+    background-color: ${({ type }) => colors[type]};
+`;
