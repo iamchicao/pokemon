@@ -7,7 +7,7 @@ const PokemonCardStyle = createGlobalStyle`
     text-align: center !important;
   }
   .description {
-    font-size: 0.85em;
+    font-size: 0.85rem;
   }
   .card-container {
     display: flex;
@@ -20,7 +20,7 @@ const PokemonCardStyle = createGlobalStyle`
     text-transform: capitalize;
   }
   .pokemon-stats {
-    font-size: 1.5em;
+    font-size: 1.5rem;
     margin-bottom: 15px;
   }
   .pokemon-stat-title {

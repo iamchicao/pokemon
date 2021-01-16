@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 
-import PokemonCard from "./PokemonCard/PokemonCard";
-import pokedex from "../data/pokedex";
-import descriptions from "../data/descriptions";
-import abilities from "../data/abilities";
+import PokemonCard from "../PokemonCard/PokemonCard";
+import pokedex from "../../data/pokedex";
+import descriptions from "../../data/descriptions";
+import abilities from "../../data/abilities";
 
 const PokemonList = ({ searchTerm }) => {
     const [pokemon, setPokemon] = useState([]);
