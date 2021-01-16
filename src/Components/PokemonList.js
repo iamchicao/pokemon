@@ -25,7 +25,7 @@ const PokemonList = ({ searchField, onSearchChange }) => {
   const [ability, setAbility] = useState([]);
 
   useEffect(() => {
-    function getPokemonData() {
+    const getPokemonData = () => {
       const pokemonData = pokedex;
       const pokemonDescription = descriptions;
       const pokemonAbilities = abilities.map((ability) => {
@@ -34,7 +34,7 @@ const PokemonList = ({ searchField, onSearchChange }) => {
       setPokemon(pokemonData);
       setDescription(pokemonDescription);
       setAbility(pokemonAbilities);
-    }
+    };
     getPokemonData();
   }, []);
 
