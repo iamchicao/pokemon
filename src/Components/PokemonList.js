@@ -3,19 +3,19 @@ import { connect } from "react-redux";
 import PokemonCard from "./PokemonCard/PokemonCard";
 import pokedex from "../components/data//pokedex";
 import descriptions from "../components/data//descriptions";
-import abilities from "../components/data/abilities"
+import abilities from "../components/data/abilities";
 import { setSearchField } from "./Actions/actions";
 import Navbar from "./Navbar";
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    searchField: state.searchField
+    searchField: state.searchField,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    onSearchChange: event => dispatch(setSearchField(event.target.value))
+    onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
   };
 };
 
@@ -28,8 +28,8 @@ const PokemonList = ({ searchField, onSearchChange }) => {
     function getPokemonData() {
       const pokemonData = pokedex;
       const pokemonDescription = descriptions;
-      const pokemonAbilities = abilities.map(ability => {
-        return ability.map(ability => ability.ability.name).join(" / ");
+      const pokemonAbilities = abilities.map((ability) => {
+        return ability.map((ability) => ability.ability.name).join(" / ");
       });
       setPokemon(pokemonData);
       setDescription(pokemonDescription);
@@ -38,35 +38,31 @@ const PokemonList = ({ searchField, onSearchChange }) => {
     getPokemonData();
   }, []);
 
-  const pokemonFiltered = pokemon.filter(pokemon => {
+  const pokemonFiltered = pokemon.filter((pokemon) => {
     return pokemon.name.english
       .toLowerCase()
       .includes(searchField.toLowerCase());
   });
   return (
-    <div className='row'>
-      <div className='col'>
-        <div className='row'>
-          <Navbar searchChange={onSearchChange} />
-          {pokemonFiltered.map(pokemon => (
-            <PokemonCard
-              key={pokemon.id}
-              id={pokemon.id}
-              name={pokemon.name.english}
-              image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png?raw=true`}
-              hp={pokemon.base["HP"]}
-              attack={pokemon.base["Attack"]}
-              defense={pokemon.base["Defense"]}
-              specialAttack={pokemon.base["Sp. Attack"]}
-              specialDefense={pokemon.base["Sp. Defense"]}
-              speed={pokemon.base["Speed"]}
-              type={pokemon.type}
-              description={description[pokemon.id - 1]}
-              ability={ability[pokemon.id - 1]}
-            />
-          ))}
-        </div>
-      </div>
+    <div className="row">
+      <Navbar searchChange={onSearchChange} />
+      {pokemonFiltered.map((pokemon) => (
+        <PokemonCard
+          key={pokemon.id}
+          id={pokemon.id}
+          name={pokemon.name.english}
+          image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png?raw=true`}
+          hp={pokemon.base["HP"]}
+          attack={pokemon.base["Attack"]}
+          defense={pokemon.base["Defense"]}
+          specialAttack={pokemon.base["Sp. Attack"]}
+          specialDefense={pokemon.base["Sp. Defense"]}
+          speed={pokemon.base["Speed"]}
+          type={pokemon.type}
+          description={description[pokemon.id - 1]}
+          ability={ability[pokemon.id - 1]}
+        />
+      ))}
     </div>
   );
 };
