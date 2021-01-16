@@ -76,7 +76,7 @@ html {
 
 h1 {
   font-weight: 700;
-  font-size: 1.75rem;
+  font-size: 1.3rem;
   color: #f3f3f3;
 }
 
@@ -85,8 +85,8 @@ h3 {
 }
 
 .container {
-  margin-top: 75px;
-  padding-top: 20px;
+  margin-top: 100px;
+  padding: 3rem;
 }
 `;
 
