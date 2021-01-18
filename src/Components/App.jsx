@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import PokemonList from "../PokemonList/PokemonList";
-import { GlobalStyle } from "../../styles/styles";
-import Navbar from "../Navbar/Navbar";
-import "bootstrap/dist/css/bootstrap.css";
+import PokemonList from "./PokemonList/PokemonList";
+import { GlobalStyle } from "../styles/styles";
+import Navbar from "./Navbar/Navbar";
 
 const App = () => {
     const [searchTerm, setSearchTerm] = useState("");

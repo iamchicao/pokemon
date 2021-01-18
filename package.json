@@ -1,6 +1,6 @@
 {
-    "name": "pokemonteam",
-    "version": "0.1.0",
+    "name": "original-pokemon-pokedex",
+    "version": "0.2.0",
     "private": true,
     "dependencies": {
         "bootstrap": "^4.4.1",
@@ -23,8 +23,8 @@
         "build": "react-scripts build",
         "test": "react-scripts test --watchAll=false",
         "eject": "react-scripts eject",
-        "format": "prettier --write \"**/*.js\"",
-        "lint": "eslint './src/**/*.js'"
+        "format": "prettier --write \"**/*.{js,jsx}\"",
+        "lint": "eslint './src/**/*.{js,jsx}' --quiet --fix"
     },
     "eslintConfig": {
         "extends": "react-app"
