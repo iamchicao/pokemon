@@ -4,7 +4,7 @@ import PokemonCard from "../PokemonCard/PokemonCard";
 import pokedex from "../../data/pokedex";
 import descriptions from "../../data/descriptions";
 import abilities from "../../data/abilities";
-import { EmojiWrapper } from "./styles";
+import { EmojiWrapper, PokemonContainer } from "./styles";
 import { filterOutPokemon } from "../utils";
 
 const PokemonList = ({ searchTerm }) => {
@@ -14,7 +14,6 @@ const PokemonList = ({ searchTerm }) => {
     const [isPokemonLoaded, setIsPokemonLoaded] = useState(false);
 
     useEffect(() => {
-        //Get pokemon data
         setPokemon(pokedex);
         setDescription(descriptions);
         setAbility(
@@ -30,7 +29,7 @@ const PokemonList = ({ searchTerm }) => {
     const filteredPokemon = filterOutPokemon(pokemon, searchTerm);
 
     return (
-        <div data-testid="pokemon-list" className="row">
+        <PokemonContainer data-testid="pokemon-list" className="row">
             {!isPokemonLoaded || filteredPokemon.length > 0 ? (
                 filteredPokemon.map((pokemon) => (
                     <PokemonCard
@@ -67,7 +66,7 @@ const PokemonList = ({ searchTerm }) => {
                     </div>
                 </>
             )}
-        </div>
+        </PokemonContainer>
     );
 };
 
