@@ -12,13 +12,11 @@ _Objetivos_:
 
 Instalar as dependências:
 
-`yar install`
+`yarn install`
 
 Para executar o projeto:
 
-`yar dev`
-
-![Detetive](https://giphy.com/gifs/detectivepikachumovie-pikachu-detective-detectivepikachu-42wQXwITfQbDGKqUP7)
+`yarn dev`
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/acef298b-eaa0-438e-8ad6-734e71b5f4fb/deploy-status)](https://app.netlify.com/sites/whats-that-pokemon/deploys)
 
