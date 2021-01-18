@@ -1,4 +1,8 @@
 src/data/
 .cache
 package.json
-yarn.lock 
+yarn.lock
+node_modules
+**/.next/**
+**/_next**
+**/dist/**
