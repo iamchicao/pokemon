@@ -16,4 +16,8 @@ export const Container = styled.div`
         padding: 4rem;
         font-size: 1.1rem;
     }
-`;
+    `;
+
+    export const NavigationContainer = styled.div`
+      margin-top: 1rem;
+    `;
