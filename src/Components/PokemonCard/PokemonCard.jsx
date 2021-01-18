@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { PokemonTypeBadge, PokemonName, PokemonNumber } from "./styles";
 
 const PokemonCard = ({ name, id, image, type }) => {
@@ -24,12 +25,12 @@ const PokemonCard = ({ name, id, image, type }) => {
                         ))}
                     </div>
                     <div className="card-body">
-                        <img
+                        <LazyLoadImage
                             src={image}
                             alt={`pokemon: ${name}`}
-                            loading="lazy"
                             height="96px"
                             width="96px"
+                            effect="blur"
                         />
                     </div>
                 </div>

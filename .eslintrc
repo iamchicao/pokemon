@@ -5,11 +5,19 @@
     "jest": true
   },
   "extends": [
-    "react-app",
+    "eslint:recommended",
+    "plugin:react/recommended",
     "prettier"
   ],
   "rules": {
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "react/self-closing-comp": [
+        "error",
+        {
+            "component": true,
+            "html": true
+        }
+    ]
   },
   "globals": {
     "Atomics": "readonly",
