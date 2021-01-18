@@ -3,7 +3,7 @@ import Link from "next/link";
 import pokedex from "../../src/data/pokedex";
 import descriptions from "../../src/data/descriptions";
 import abilities from "../../src/data/abilities";
-import Pokemon from "../../src/components/Pokemon/Pokemon";
+import Pokemon from "../../src/Components/Pokemon/Pokemon";
 
 export default function Pokemons({ pokemonData }) {
     const description = descriptions;
