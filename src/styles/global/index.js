@@ -142,7 +142,7 @@ h5,
 h6 {
     line-height: 1.2;
     margin-top: 0;
-    margin-bottom: 1.2rem;
+    margin-bottom: 0.5rem;
 }
 body {
     height: 100%;
@@ -162,6 +162,12 @@ h1 {
 h3 {
     font-size: 1.2rem;
 }
+
+p {
+    margin: 0.375rem;
+}
+
+
 form {
     font-size: 0.8rem;
 }
