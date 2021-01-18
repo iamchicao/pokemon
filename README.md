@@ -10,6 +10,16 @@ _Objetivos_:
 - [x] Use a base do https://pokeapi.co/ para alimentar o seu front com os 151 primeiros pokémons.
 - [ ] Na lista de pokémons, ao clicar em um pokémon deve mostrar qual suas evoluções (caso tenha) e seu tipo.
 
+Instalar as dependências:
+
+`yar install`
+
+Para executar o projeto:
+
+`yar dev`
+
+![Detetive](https://giphy.com/gifs/detectivepikachumovie-pikachu-detective-detectivepikachu-42wQXwITfQbDGKqUP7)
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/acef298b-eaa0-438e-8ad6-734e71b5f4fb/deploy-status)](https://app.netlify.com/sites/whats-that-pokemon/deploys)
 
 [Readme em inglês](https://github.com/iamchicao/pokemon/blob/master/README%20_en.md)
