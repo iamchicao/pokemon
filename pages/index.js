@@ -21,7 +21,7 @@ const App = () => {
                 />
                 <meta
                     name="description"
-                    content="An original 151 Pokedex app"
+                    content="The original 151 Pokedex app"
                 />
             </Head>
             <Navbar searchChange={searchChange} />
