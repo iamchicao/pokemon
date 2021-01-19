@@ -1,5 +1,3 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/acef298b-eaa0-438e-8ad6-734e71b5f4fb/deploy-status)](https://app.netlify.com/sites/whats-that-pokemon/deploys)
-
 Pokedex desenvolvida usando React e Next.js. Possuí uma lista com os primeiros 151 Pokémons. Ao navegar até a página de cada um, será possível visualizar seus status e descrição.
 
 Utilizando como base de dados a [PokeAPI](https://pokeapi.co/) e também arquivos localizados em src/data.
