@@ -1,6 +1,7 @@
+/* eslint-disable prettier/prettier */
 import React from "react";
 import { handleSubmit } from "../utils";
-import  { PageNavbar } from "./styles";
+import { PageNavbar } from "./styles";
 
 const Navbar = ({ searchChange }) => {
     return (

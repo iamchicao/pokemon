@@ -1,7 +1,8 @@
+/* eslint-disable prettier/prettier */
 import React, { useState } from "react";
 import Head from "next/head";
-import PokemonList from "../src/Components/PokemonList/PokemonList";
-import Navbar from "../src/Components/Navbar/Navbar";
+import PokemonList from "../src/components/PokemonList/PokemonList";
+import Navbar from "../src/components/Navbar/Navbar";
 
 const App = () => {
     const [searchTerm, setSearchTerm] = useState("");

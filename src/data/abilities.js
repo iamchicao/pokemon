@@ -20,7 +20,7 @@ const abilities = [
     [
       {
         "ability": {
-          "name": "chlorophyll",
+          "name": "chlorophyll",  
           "url": "https://pokeapi.co/api/v2/ability/34/"
         },
         "is_hidden": true,
